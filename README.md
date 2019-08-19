@@ -1,2 +1,2 @@
-# travel
-慕课网Vue学习项目
+# Travel
+慕课网Vue学习项目，旅游网站
