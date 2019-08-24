@@ -1,19 +1,10 @@
 <template>
   <div class="swiper-container">
     <swiper :options="swiperOption">
-      <!-- slides -->
-      <swiper-slide>I'm Slide 1</swiper-slide>
-      <swiper-slide>I'm Slide 2</swiper-slide>
-      <swiper-slide>I'm Slide 3</swiper-slide>
-      <swiper-slide>I'm Slide 4</swiper-slide>
-      <swiper-slide>I'm Slide 5</swiper-slide>
-      <swiper-slide>I'm Slide 6</swiper-slide>
-      <swiper-slide>I'm Slide 7</swiper-slide>
-      <!-- Optional controls -->
+      <swiper-slide v-for="(item, index) of ImgUrlList" :key="index">
+        <img class="swiper-img" :src="item" alt />
+      </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-      <div class="swiper-scrollbar" slot="scrollbar"></div>
     </swiper>
   </div>
 </template>
@@ -21,12 +12,33 @@
 <script>
 export default {
   components: {},
-  data() {
+  data () {
     return {
-      swiperOption: {}
-    };
+      swiperOption: {
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        autoplay: true
+      },
+      ImgUrlList: [
+        'static/images/banner1.jpg',
+        'static/images/banner2.jpg',
+        'static/images/banner3.jpg'
+      ]
+    }
   }
-};
+}
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus" scoped>
+.swiper-container >>>.swiper-pagination-bullet-active
+    background: #fff;
+.swiper-container {
+    width: 100%;
+    height: 31.25vw;
+    background: #eee;
+    .swiper-img {
+        width: 100%;
+    }
+}
+</style>

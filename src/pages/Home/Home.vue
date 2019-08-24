@@ -13,9 +13,8 @@ export default {
   components: {
     HomeHeader,
     HomeSwiper
-} 
-
-};
+  }
+}
 </script>
 
 <style scoped>
